@@ -1,4 +1,4 @@
-import { receivePassportRequest } from "passport-interface";
+import { receivePassportRequest } from "@pcd/passport-interface";
 import { useEffect } from "react";
 import styled from "styled-components";
 

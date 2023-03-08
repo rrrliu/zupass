@@ -1,5 +1,5 @@
 {
-  "name": "consumer-server",
+  "name": "@pcd/consumer-server",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -25,9 +25,9 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "ts-node": "^10.9.1",
-    "ui": "*",
+    "@pcd/ui": "*",
     "uuid": "^9.0.0",
-    "pcd-types": "*"
+    "@pcd/pcd-types": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -39,9 +39,9 @@
     "@types/uuid": "^9.0.0",
     "dotenv": "^16.0.3",
     "eslint": "7.32.0",
-    "eslint-config-custom": "*",
+    "@pcd/eslint-config-custom": "*",
     "ts-node-dev": "^2.0.0",
-    "tsconfig": "*",
+    "@pcd/tsconfig": "*",
     "typescript": "^4.5.3"
   }
 }

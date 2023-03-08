@@ -1,5 +1,5 @@
 {
-  "name": "passport-client",
+  "name": "@pcd/passport-client",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -15,8 +15,8 @@
     "react-dom": "^18.2.0",
     "styled-components": "^5.3.6",
     "ui": "*",
-    "pcd-types": "*",
-    "passport-interface": "*"
+    "@pcd/pcd-types": "*",
+    "@pcd/passport-interface": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -25,8 +25,8 @@
     "@types/react-dom": "^18.0.7",
     "@types/styled-components": "^5.1.26",
     "eslint": "7.32.0",
-    "eslint-config-custom": "*",
-    "tsconfig": "*",
+    "@pcd/eslint-config-custom": "*",
+    "@pcd/tsconfig": "*",
     "typescript": "^4.5.3"
   }
 }

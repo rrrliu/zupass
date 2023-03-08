@@ -1,5 +1,5 @@
 {
-  "name": "passport-interface",
+  "name": "@pcd/passport-interface",
   "version": "0.0.0",
   "main": "./index.tsx",
   "types": "./index.tsx",
@@ -7,14 +7,16 @@
   "scripts": {
     "lint": "TIMING=1 eslint \"**/*.ts*\""
   },
+  "dependencies": {
+    "@pcd/pcd-types": "*"
+  },
   "devDependencies": {
     "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.11",
     "eslint": "^7.32.0",
     "eslint-config-custom": "*",
     "react": "^18.2.0",
-    "tsconfig": "*",
-    "typescript": "^4.5.2",
-    "pcd-types": "*"
+    "@pcd/tsconfig": "*",
+    "typescript": "^4.5.2"
   }
 }
