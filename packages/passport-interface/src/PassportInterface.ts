@@ -1,4 +1,4 @@
-import { ArgsOf, PCD, PCDPackage } from "@pcd/pcd-types";
+import { ArgsOf, PCDPackage, SerializedPCD } from "@pcd/pcd-types";
 
 export enum PCDRequestType {
   Get = "Get",
@@ -27,7 +27,7 @@ export interface PCDGetRequest<T extends PCDPackage = PCDPackage>
 
 export interface PCDAddRequest extends PCDRequest {
   type: PCDRequestType.Add;
-  pcd: PCD;
+  pcd: SerializedPCD;
 }
 
 export function constructPassportPcdGetRequestUrl<T extends PCDPackage>(
@@ -51,7 +51,7 @@ export function constructPassportPcdGetRequestUrl<T extends PCDPackage>(
 export function constructPassportPcdAddRequestUrl(
   passportOrigin: string,
   returnUrl: string,
-  pcd: PCD
+  pcd: SerializedPCD
 ) {
   const req: PCDAddRequest = {
     type: PCDRequestType.Add,
@@ -60,29 +60,3 @@ export function constructPassportPcdAddRequestUrl(
   };
   return `${passportOrigin}?request=${JSON.stringify(req)}`;
 }
-
-// export function passportReceiveRequest(
-//   url: string
-// ): PCDGetRequest | PCDAddRequest | undefined {
-//   const URL = new URLSearchParams(url);
-
-//   const request = JSON.parse(URL.get("request") || "");
-
-//   if (isPassportAddRequest(request)) {
-//     return request;
-//   }
-
-//   if (isPassportGetRequest(request)) {
-//     return request;
-//   }
-
-//   return undefined;
-// }
-
-// export function isPassportGetRequest(req: any): req is PCDGetRequest {
-//   return req.type === PCDRequestType.Get;
-// }
-
-// export function isPassportAddRequest(req: any): req is PCDAddRequest {
-//   return req.type === PCDRequestType.Add;
-// }
