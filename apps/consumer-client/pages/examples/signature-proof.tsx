@@ -9,7 +9,7 @@ import { useCallback } from "react";
 import { CollapsableCode, HomeLink } from "../../components/Core";
 import { ExampleContainer } from "../../components/ExamplePage";
 import { PASSPORT_URL } from "../../src/constants";
-import { requestProofFromPassport } from "../../src/util";
+import { sendPassportRequest } from "../../src/util";
 
 /**
  * Example page which shows how to use the generic prove screen to
@@ -86,5 +86,5 @@ function requestSemaphoreSignature() {
     }
   );
 
-  requestProofFromPassport(proofUrl);
+  sendPassportRequest(proofUrl);
 }

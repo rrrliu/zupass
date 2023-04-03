@@ -9,7 +9,7 @@ import { useState } from "react";
 import { CodeLink, CollapsableCode, HomeLink } from "../../components/Core";
 import { ExampleContainer } from "../../components/ExamplePage";
 import { PASSPORT_URL, SEMAPHORE_GROUP_URL } from "../../src/constants";
-import { requestProofFromPassport } from "../../src/util";
+import { sendPassportRequest } from "../../src/util";
 
 /**
  * Example page which shows how to use the generic prove screen to
@@ -130,5 +130,5 @@ function requestMembershipProof(debug: boolean) {
     }
   );
 
-  requestProofFromPassport(proofUrl);
+  sendPassportRequest(proofUrl);
 }

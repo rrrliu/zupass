@@ -16,11 +16,14 @@ export default function AuthPopup() {
     const params = new URLSearchParams(search);
 
     // First, this page is window.open()-ed. Redirect to the Passport app.
-    if (params.get("proofUrl") != null) {
-      window.location.href = decodeURIComponent(params.get("proofUrl")!);
+    if (params.get("passportUrl") != null) {
+      window.location.href = decodeURIComponent(params.get("passportUrl")!);
     } else if (params.get("proof") != null) {
       // Later, the Passport redirects back with a proof. Send it to our parent.
       window.opener.postMessage({ encodedPcd: params.get("proof")! }, "*");
+      window.close();
+    } else if (params.get("pcdResponse") != null) {
+      window.opener.postMessage({ response: params.get("pcdResponse")! }, "*");
       window.close();
     }
   }, []);

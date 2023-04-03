@@ -6,7 +6,7 @@ import {
 import { CodeLink, CollapsableCode, HomeLink } from "../../components/Core";
 import { ExampleContainer } from "../../components/ExamplePage";
 import { PASSPORT_URL, SEMAPHORE_GROUP_URL } from "../../src/constants";
-import { requestProofFromPassport } from "../../src/util";
+import { sendPassportRequest } from "../../src/util";
 
 /**
  * Example page which shows how to use a Zuzalu-specific prove screen to
@@ -78,5 +78,5 @@ function requestZuzaluMembershipProof() {
     "12345"
   );
 
-  requestProofFromPassport(proofUrl);
+  sendPassportRequest(proofUrl);
 }
