@@ -1,6 +1,7 @@
 import { encryptStorage, getHash, PCDCrypto } from "@pcd/passport-crypto";
 import { EncryptedStorage, ZuParticipant } from "@pcd/passport-interface";
 import { PCDCollection } from "@pcd/pcd-collection";
+import { SerializedPCD } from "@pcd/pcd-types";
 import { SemaphoreGroupPCDPackage } from "@pcd/semaphore-group-pcd";
 import {
   SemaphoreIdentityPCD,
@@ -52,7 +53,8 @@ export type Action =
       type: "load-from-sync";
       storage: EncryptedStorage;
       encryptionKey: string;
-    };
+    }
+  | { type: "add-pcd"; pcd: SerializedPCD };
 
 export const DispatchContext = createContext<[ZuState, Dispatcher]>([] as any);
 
@@ -80,6 +82,8 @@ export async function dispatch(
       return resetPassport();
     case "load-from-sync":
       return loadFromSync(action.encryptionKey, action.storage, state, update);
+    case "add-pcd":
+      return addPcd(state, update, action.pcd);
     default:
       console.error("Unknown action type", action);
   }
@@ -229,6 +233,15 @@ function resetPassport() {
   // Reload to clear in-memory state.
   window.location.hash = "#/";
   window.location.reload();
+}
+
+async function addPcd(state: ZuState, update: ZuUpdate, pcd: SerializedPCD) {
+  if (state.pcds.hasPackage(pcd.type)) {
+    await state.pcds.deserializeAndAdd(pcd);
+    update({ pcds: state.pcds });
+  } else {
+    console.log("ERROR");
+  }
 }
 
 async function loadFromSync(
